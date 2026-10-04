@@ -1,0 +1,148 @@
+{
+  "_readme": "Single source of truth for the portfolio. Edit and save - the API picks up changes automatically. Any URL that starts with 'TODO' is treated as empty and its button is hidden on the site.",
+  "profile": {
+    "name": "Haja Shafrith Suhail",
+    "shortName": "Shafrith",
+    "title": "Senior Software Engineer",
+    "shortTitle": "AI Engineer · Angular Developer",
+    "eyebrow": "ANGULAR · GENERATIVE AI · AGENTIC SYSTEMS",
+    "tagline": "Frontends that scale. Agents that deliver.",
+    "summary": "I build AI solutions for real business problems: support assistants that answer from a company's own documents, multi-agent systems that split work across specialised agents, and n8n automations that remove repetitive manual steps. I work with RAG, LangChain, CrewAI, AutoGen and the OpenAI API, and ship them as usable apps with FastAPI, Streamlit and Docker.\n\nBehind that is 7+ years of production software engineering, including 4+ years as an Angular developer on an enterprise platform at Anteriad, so the AI I build comes with interfaces people can actually use.",
+    "location": "India · Open to relocation",
+    "photo": "/profile.jpg",
+    "links": {
+      "email": "shafrith777@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/shafrith-suhail",
+      "github": "https://github.com/shafrith",
+      "resume": "/resume.pdf"
+    },
+    "stats": [
+      { "value": 7, "suffix": "+", "label": "years in software" },
+      { "value": 4, "suffix": "+", "label": "years in Angular" },
+      { "value": 8, "suffix": "", "label": "business domains" },
+      { "value": 3, "suffix": "", "label": "AI agent projects" }
+    ],
+    "education": [
+      {
+        "degree": "B.Tech, Information Technology",
+        "institution": "Karpagam College of Engineering",
+        "start": "2015",
+        "end": "2019"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "company": "Anteriad Pvt Ltd",
+      "roles": [
+        {
+          "title": "Senior Software Engineer (Angular)",
+          "start": "2023-08",
+          "end": null,
+          "summary": "Build Anteriad's enterprise lead-delivery platform in Angular, TypeScript and RxJS, including dashboards, PowerPoint export and role-based access.",
+          "highlights": [
+            "Build and maintain Anteriad's enterprise lead-delivery platform, used daily by the operations team, in Angular, TypeScript and RxJS",
+            "Built Highcharts dashboards, jSpreadsheet data grids and one-click PowerPoint export (PptxGenJS), with file storage on AWS S3",
+            "Implemented role-based access with 28 route guards, HttpClient interceptors for auth and errors, and complex Reactive Forms with custom validators",
+            "1,500+ commits across 8 business domains, including Planning, Allocations, Quality Control, Ticketing and Reports",
+            "Agile sprints, pull-request reviews, releases through Bitbucket Pipelines CI/CD"
+          ],
+          "projects": []
+        }
+      ]
+    },
+    {
+      "company": "Vyshnavi Information Technologies Pvt Ltd",
+      "roles": [
+        {
+          "title": "Software Engineer",
+          "start": "2020-04",
+          "end": "2023-03",
+          "highlights": [],
+          "projects": [
+            {
+              "name": "IntelliBuddies",
+              "role": "Angular Developer",
+              "start": "2022-08",
+              "end": "2023-03",
+              "summary": "Built features for a multi-module Angular and TypeScript web app and integrated it with backend REST APIs.",
+              "highlights": [
+                "Built features for a multi-module Angular/TypeScript web app with responsive, cross-browser layouts",
+                "Integrated REST APIs with backend developers",
+                "Handled code reviews, debugging and Scrum ceremonies"
+              ]
+            },
+            {
+              "name": "Market Rhythm",
+              "role": "PHP Developer & Test Automation",
+              "start": "2020-04",
+              "end": "2022-07",
+              "summary": "Built PHP (Laravel) and PostgreSQL features and a Python Selenium framework for cross-browser test automation, with jobs running on AWS.",
+              "highlights": [
+                "Built features with PHP (Laravel), JavaScript and PostgreSQL",
+                "Ran scheduled jobs with Docker on AWS ECS/Fargate",
+                "Built a Python Selenium framework (Page Object Model) for cross-browser testing on Chrome, Firefox and IE",
+                "Built an Angular + Django UI to run tests on AWS Device Farm"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Software Engineer Trainee",
+          "start": "2019-05",
+          "end": "2020-04",
+          "summary": "Developed PHP (Laravel) features on the Market Rhythm project and wrote automated UI tests in Python and Selenium.",
+          "highlights": [
+            "Developed features with PHP (Laravel), JavaScript and PostgreSQL on the Market Rhythm project",
+            "Wrote automated UI tests in Python and Selenium"
+          ],
+          "projects": []
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "hybrid-rag-support",
+      "title": "Hybrid RAG Customer Support Assistant",
+      "description": "Answers questions from uploaded PDFs by combining FAISS vector search with a Neo4j knowledge graph.",
+      "tech": ["Python", "LangChain", "OpenAI", "FAISS", "Neo4j", "FastAPI", "Streamlit", "Docker Compose"],
+      "github": "TODO_GITHUB_URL",
+      "demo": ""
+    },
+    {
+      "id": "multi-agent-it-workspace",
+      "title": "Multi-Agent IT Workspace",
+      "description": "Four AutoGen agents (Developer, Tester, IT Admin, HR) collaborate on tasks, with Gmail API integration via Google OAuth 2.0.",
+      "tech": ["Python", "AutoGen", "OpenAI", "Gmail API", "OAuth 2.0"],
+      "github": "TODO_GITHUB_URL",
+      "demo": ""
+    },
+    {
+      "id": "customer-support-crew",
+      "title": "Customer Support Crew",
+      "description": "Three sequential CrewAI agents (knowledge lookup, live web search, response + logging) behind a Streamlit chat UI with session memory.",
+      "tech": ["Python", "CrewAI", "OpenAI", "Streamlit"],
+      "github": "TODO_GITHUB_URL",
+      "demo": ""
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": ["Angular", "TypeScript", "JavaScript (ES6+)", "RxJS", "Reactive Forms", "Route Guards", "HTTP Interceptors", "Lazy Loading", "Angular CDK", "HTML5", "CSS3", "SCSS", "Bootstrap", "Highcharts", "jSpreadsheet", "PptxGenJS"]
+    },
+    {
+      "category": "GenAI & Automation",
+      "items": ["Generative AI", "Agentic AI", "RAG", "LangChain", "CrewAI", "AutoGen", "OpenAI API", "MCP", "FAISS", "Neo4j", "n8n", "Prompt Engineering"]
+    },
+    {
+      "category": "Backend & Cloud",
+      "items": ["Python", "FastAPI", "Django", "Streamlit", "PHP (Laravel)", "PostgreSQL", "Docker", "AWS (S3, ECS/Fargate, Device Farm)"]
+    },
+    {
+      "category": "Practices",
+      "items": ["Git", "CI/CD (Bitbucket Pipelines)", "Selenium", "Unit Testing", "Agile/Scrum", "Code Review"]
+    }
+  ]
+}

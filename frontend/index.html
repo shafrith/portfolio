@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haja Shafrith Suhail · Senior Software Engineer (Angular, GenAI & Agentic AI)</title>
+    <meta
+      name="description"
+      content="Haja Shafrith Suhail — Senior Software Engineer with 7+ years building enterprise Angular applications and hands-on GenAI, RAG and multi-agent systems (CrewAI, AutoGen). Frontends that scale. Agents that deliver."
+    />
+    <meta name="author" content="Haja Shafrith Suhail" />
+    <meta name="theme-color" content="#fafaf9" />
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+    <link rel="preconnect" href="%VITE_API_URL%" crossorigin />
+    <link rel="preload" as="image" href="/profile.jpg" fetchpriority="high" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Haja Shafrith Suhail" />
+    <meta property="og:title" content="Haja Shafrith Suhail · Angular + GenAI & Agentic AI Engineer" />
+    <meta
+      property="og:description"
+      content="Frontends that scale. Agents that deliver. Enterprise Angular apps, RAG and multi-agent systems."
+    />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Haja Shafrith Suhail — Frontends that scale. Agents that deliver." />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Haja Shafrith Suhail · Angular + GenAI & Agentic AI Engineer" />
+    <meta
+      name="twitter:description"
+      content="Frontends that scale. Agents that deliver. Enterprise Angular apps, RAG and multi-agent systems."
+    />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Haja Shafrith Suhail",
+        "jobTitle": "Senior Software Engineer",
+        "url": "%VITE_SITE_URL%/",
+        "sameAs": ["https://www.linkedin.com/in/shafrith-suhail", "https://github.com/shafrith"],
+        "knowsAbout": ["Angular", "TypeScript", "RxJS", "Generative AI", "Agentic AI", "RAG", "CrewAI", "AutoGen"]
+      }
+    </script>
+
+    <!-- Apply the saved mode + accent before first paint to avoid a color flash.
+         Defaults: light mode, Calm Teal. Values are injected from src/theme/accents.ts at build. -->
+    <script>
+      (function () {
+        var cfg = __THEME_CONFIG__;
+        var root = document.documentElement;
+        var accent = cfg.defaultAccent;
+        try {
+          if (localStorage.getItem(cfg.modeKey) === 'dark') root.classList.add('dark');
+          var saved = localStorage.getItem(cfg.accentKey);
+          if (cfg.showSwitcher && cfg.accents.indexOf(saved) !== -1) accent = saved;
+        } catch (e) {}
+        root.setAttribute('data-accent', accent);
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <p style="padding: 2rem; font-family: sans-serif">
+        Haja Shafrith Suhail — Senior Software Engineer (Angular, GenAI & Agentic AI). Please enable JavaScript
+        to view this portfolio, or email shafrith777@gmail.com.
+      </p>
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

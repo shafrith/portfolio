@@ -1,0 +1,34 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: ./backend/.env
+        required: false
+    environment:
+      CORS_ORIGINS: http://localhost:8080,http://localhost:5173
+      DATABASE_URL: sqlite:////app/data/portfolio.db
+    volumes:
+      - backend-data:/app/data
+      # Edit profile.json on the host and the running API picks it up - no rebuild needed.
+      - ./backend/app/content:/app/app/content:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: http://localhost:8000
+        VITE_SITE_URL: http://localhost:8080
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  backend-data:
