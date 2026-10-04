@@ -47,6 +47,10 @@ class Settings(BaseSettings):
     smtp_use_tls: bool = True
     smtp_from: str = ""
     contact_to_email: str = ""
+    # Resend (HTTP email API). Used instead of SMTP when RESEND_API_KEY is set.
+    resend_api_key: str = ""
+    # resend.dev's test sender can only email the address you signed up to Resend with.
+    resend_from: str = "Portfolio <onboarding@resend.dev>"
 
     @property
     def cors_origin_list(self) -> list[str]:
@@ -63,6 +67,10 @@ class Settings(BaseSettings):
     @property
     def resolved_llm_model(self) -> str:
         return self.llm_model or DEFAULT_MODELS.get(self.llm_provider, "")
+
+    @property
+    def resend_enabled(self) -> bool:
+        return bool(self.resend_api_key and self.contact_to_email)
 
     @property
     def smtp_enabled(self) -> bool:

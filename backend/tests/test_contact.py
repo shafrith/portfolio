@@ -81,6 +81,56 @@ def test_contact_sends_email_when_smtp_configured(make_client, monkeypatch):
     assert ("send", "me@example.com", "ada@example.com") in sent
 
 
+class FakeResponse:
+    def __init__(self, status_code=200, text="{}"):
+        self.status_code = status_code
+        self.text = text
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            import httpx
+
+            request = httpx.Request("POST", "https://api.resend.com/emails")
+            raise httpx.HTTPStatusError("error", request=request, response=self)
+
+
+def test_contact_sends_via_resend_when_key_set(make_client, monkeypatch):
+    calls = []
+
+    def fake_post(url, headers, json, timeout):
+        calls.append((url, headers, json))
+        return FakeResponse()
+
+    monkeypatch.setattr("app.services.contact.httpx.post", fake_post)
+    # SMTP is also configured: Resend should take priority.
+    client = make_client(
+        resend_api_key="re_test",
+        contact_to_email="me@example.com",
+        smtp_host="smtp.example.com",
+        smtp_username="bot",
+        smtp_password="pw",
+    )
+    assert client.post("/api/contact", json=VALID).status_code == 201
+    [(url, headers, body)] = calls
+    assert url == "https://api.resend.com/emails"
+    assert headers["Authorization"] == "Bearer re_test"
+    assert body["to"] == ["me@example.com"]
+    assert body["reply_to"] == "ada@example.com"
+    assert body["from"] == "Portfolio <onboarding@resend.dev>"
+    assert "Hello, I would love" in body["text"]
+
+
+def test_resend_failure_is_logged_not_raised(make_client, monkeypatch, caplog):
+    monkeypatch.setattr(
+        "app.services.contact.httpx.post",
+        lambda *a, **k: FakeResponse(403, '{"message":"domain not verified"}'),
+    )
+    client = make_client(resend_api_key="re_test", contact_to_email="me@example.com")
+    assert client.post("/api/contact", json=VALID).status_code == 201
+    assert len(_messages(client)) == 1  # still saved
+    assert "domain not verified" in caplog.text
+
+
 def test_contact_skips_email_until_password_is_set(make_settings):
     settings = make_settings(
         smtp_host="smtp.gmail.com", smtp_username="me@gmail.com", contact_to_email="me@gmail.com"
